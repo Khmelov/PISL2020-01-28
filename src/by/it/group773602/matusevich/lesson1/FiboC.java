@@ -1,4 +1,4 @@
-package by.it.group773602.lyapich.lesson01;
+package by.it.group773602.matusevich.lesson1;
 
 /*
  * Даны целые числа 1<=n<=1E18 и 2<=m<=1E5,
@@ -23,7 +23,8 @@ public class FiboC {
     }
 
     long fasterC(long n, int m) {
-        ArrayList<Long>  listModPisano = getSequencePeriod(m);
+
+        ArrayList<Long> listModPisano = getSequencePeriod(m);
         int period = listModPisano.size() - 2;
         int result = (int)(n % period);
 
@@ -31,7 +32,7 @@ public class FiboC {
     }
 
     private static ArrayList<Long> getSequencePeriod(long m){
-        ArrayList<Long> listModPisano = new ArrayList<Long>();
+        ArrayList<Long> listModPisano = new ArrayList<>();
         listModPisano.add((long)0);
         listModPisano.add((long)1);
 
