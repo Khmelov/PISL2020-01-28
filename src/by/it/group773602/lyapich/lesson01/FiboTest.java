@@ -1,4 +1,4 @@
-package by.it.group773602.lyapich.lab1;
+package by.it.group773602.lyapich.lesson01;
 
 import org.junit.Test;
 
