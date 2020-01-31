@@ -69,23 +69,6 @@ public class B_Sheduler {
                     return result;
             }
         }
-//        List<Event> listEvents = Arrays.asList(events);
-//
-//        listEvents.sort(Comparator.comparing(event -> event.stop));
-//
-//        for (Event event : events) {
-//            if (result.isEmpty())
-//                result.add(event);
-//            else if (event.start == result.get(result.size() - 1).start && event.stop < result.get(result.size() - 1).stop) {
-//                result.remove(result.get(result.size() - 1));
-//                result.add(event);
-//            }
-//            else if (event.start >= result.get(result.size() - 1).stop) {
-//                result.add(event);
-//            }
-//        }
-//
-
 
         return result;                        //вернем итог
     }
