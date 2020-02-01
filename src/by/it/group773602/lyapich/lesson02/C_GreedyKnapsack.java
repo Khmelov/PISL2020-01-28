@@ -26,7 +26,11 @@ public class C_GreedyKnapsack {
         Item(int cost, int weight) {
             this.cost = cost;
             this.weight = weight;
-            this.costPerWeight = cost / weight;
+
+            if(weight == 0)
+                this.costPerWeight = cost;
+            else
+                this.costPerWeight = cost / weight;
         }
 
         @Override
