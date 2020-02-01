@@ -51,18 +51,19 @@ public class B_Sheduler {
         result.add(sortedArray.get(0));
 
         int i = 0;
-
+        Event buffer;
         while (i < sortedArray.size()){
-            if(sortedArray.get(i).start == getLast(result).start){
-                if(sortedArray.get(i).stop < getLast(result).stop) {
+            buffer = sortedArray.get(i++);
+
+            if(buffer.start == getLast(result).start){
+                if(buffer.stop < getLast(result).stop) {
                     result.remove(getLast(result));
-                    result.add(sortedArray.get(i));
+                    result.add(buffer);
                 }
             }
-            else if (sortedArray.get(i).start >= getLast(result).stop) {
-                result.add(sortedArray.get(i));
+            else if (buffer.start >= getLast(result).stop && buffer.stop <= to) {
+                result.add(buffer);
             }
-            i++;
         }
 
         return result;                        //вернем итог
