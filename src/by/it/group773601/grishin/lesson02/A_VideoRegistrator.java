@@ -1,6 +1,7 @@
-package by.it.a_khmelev.lesson02;
+package by.it.group773601.grishin.lesson02;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 /*
 даны события events
@@ -27,9 +28,15 @@ public class A_VideoRegistrator {
         int i=0;                              //i - это индекс события events[i]
         //комментарии от проверочного решения сохранены для подсказки, но вы можете их удалить.
         //подготовка к жадному поглощению массива событий
-        //hint: сортировка Arrays.sort обеспечит скорость алгоритма
+        Arrays.sort(events); //hint: сортировка Arrays.sort обеспечит скорость алгоритма
         //C*(n log n) + C1*n = O(n log n)
-
+        double currentTime = 0;
+        for (; i < events.length; i++) {
+            if (events[i] > currentTime) {
+                result.add(events[i]);
+                currentTime = events[i] + workDuration;
+            }
+        }
         //пока есть незарегистрированные события
         //получим одно событие по левому краю
         //и запомним время старта видеокамеры
