@@ -53,9 +53,17 @@ public class B_Sheduler {
         Arrays.sort(events, new Sortbyend());
 
         int j = 0;
-        result.add(events[0]);
+        for (; j<events.length; j++) {
+            if (events[j].stop >= from) {
+                result.add(events[j]);
+                break;
+            }
+        }
 
-        for (int i = 1; i<events.length; i++){
+        for (int i = j+1; i<events.length; i++){
+            if (events[i].start > to) {
+                break;
+            }
             if (events[i].start >= events[j].stop){
                 result.add(events[i]);
                 j=i;
