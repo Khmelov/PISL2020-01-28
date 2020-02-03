@@ -17,6 +17,7 @@ import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.Scanner;
 
+
 public class C_GreedyKnapsack {
     private class Item implements Comparable<Item> {
         int cost;
