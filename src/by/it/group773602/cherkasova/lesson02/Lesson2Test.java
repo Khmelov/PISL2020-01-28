@@ -1,4 +1,4 @@
-package by.it.group773602.cherkasova.lesson01.lesson02;
+package by.it.group773602.cherkasova.lesson02;
 
 import org.junit.Test;
 
