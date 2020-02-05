@@ -1,6 +1,5 @@
-package by.it.group773602.matusevich.lesson1.lesson2;
+package by.it.group773602.matusevich.lesson2;
 
-import by.it.a_khmelev.lesson02.A_VideoRegistrator;
 import org.junit.Test;
 
 import java.io.File;
@@ -21,7 +20,7 @@ public class Lesson2Test {
 
     @Test
     public void A_VideoRegistrator() {
-        A_VideoRegistrator instance=new A_VideoRegistrator();
+        by.it.group773602.matusevich.lesson2.A_VideoRegistrator instance=new A_VideoRegistrator();
         double[] events=new double[]{1, 1.1, 1.6, 2.2, 2.4, 2.7, 3.9, 8.1, 9.1, 5.5, 3.7};
         List<Double> starts=instance.calcStartTimes(events,1); //рассчитаем моменты старта, с длинной сеанса 1
         boolean ok=starts.toString().equals("[1.0, 2.2, 3.7, 5.5, 8.1]");

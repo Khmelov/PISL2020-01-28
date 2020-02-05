@@ -1,4 +1,4 @@
-package by.it.group773602.matusevich.lesson1.lesson2;
+package by.it.group773602.matusevich.lesson2;
 /*
 
 Даны
