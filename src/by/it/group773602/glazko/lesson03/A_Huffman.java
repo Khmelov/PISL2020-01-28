@@ -109,7 +109,6 @@ public class A_Huffman {
     //индекс данных из листьев
     static private Map<Character, String> codes = new TreeMap<>();
 
-
     //!!!!!!!!!!!!!!!!!!!!!!!!!     НАЧАЛО ЗАДАЧИ     !!!!!!!!!!!!!!!!!!!!!!!!!
     String encode(File file) throws FileNotFoundException {
         //прочитаем строку для кодирования из тестового файла
@@ -122,26 +121,35 @@ public class A_Huffman {
         Map<Character, Integer> count = new HashMap<>();
         //1. переберем все символы по очереди и рассчитаем их частоту в Map count
             //для каждого символа добавим 1 если его в карте еще нет или инкремент если есть.
-
+        s.chars().forEach(ch -> {
+            char letter = (char) ch;
+            if (count.containsKey(letter)) {
+                count.put(letter, count.get(letter) + 1);
+            } else {
+                count.put(letter, 1);
+            }
+        });
         //2. перенесем все символы в приоритетную очередь в виде листьев
         PriorityQueue<Node> priorityQueue = new PriorityQueue<>();
-
+        count.forEach((key, value) -> priorityQueue.add(new LeafNode(value, key)));
         //3. вынимая по два узла из очереди (для сборки родителя)
         //и возвращая этого родителя обратно в очередь
         //построим дерево кодирования Хаффмана.
         //У родителя частоты детей складываются.
-
+        while (priorityQueue.size() > 1) {
+            InternalNode internalNode = new InternalNode(priorityQueue.remove(), priorityQueue.remove());
+            priorityQueue.add(internalNode);
+        }
+        Objects.requireNonNull(priorityQueue.peek()).fillCodes("");
         //4. последний из родителей будет корнем этого дерева
         //это будет последний и единственный элемент оставшийся в очереди priorityQueue.
         StringBuilder sb = new StringBuilder();
-        //.....
-
+        s.chars().forEach(ch -> sb.append(codes.get((char) ch)));
         return sb.toString();
         //01001100100111
         //01001100100111
     }
     //!!!!!!!!!!!!!!!!!!!!!!!!!     КОНЕЦ ЗАДАЧИ     !!!!!!!!!!!!!!!!!!!!!!!!!
-
 
     public static void main(String[] args) throws FileNotFoundException {
         String root = System.getProperty("user.dir") + "/src/";
@@ -156,5 +164,4 @@ public class A_Huffman {
         }
         System.out.println(result);
     }
-
 }

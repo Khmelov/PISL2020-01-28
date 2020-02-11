@@ -12,12 +12,11 @@ public class Lesson3Test {
     /*
     для прохождения тестов создайте JUnit-конфигурацию на свой пакет:
     Поля:
-    Name:               Test a_khmelev (тут ваша фамилия)
+    Name:               Test glazko
     Test kind:          All in package
-    Package:            by.it.a_khmelev (тут ваша фамилия)
+    Package:            by.it.group773602.glazko
     Search for test:    In whole project
     */
-
 
     @Test
     public void A() throws Exception {
@@ -25,7 +24,7 @@ public class Lesson3Test {
         File f = new File(root + "by/it/group773602/glazko/lesson03/dataHuffman.txt");
         A_Huffman instance = new A_Huffman();
         String result = instance.encode(f);
-        boolean ok=result.equals("01001100100111");
+        boolean ok = result.equals("01001100100111");
         assertTrue("A failed", ok);
     }
 
@@ -35,17 +34,17 @@ public class Lesson3Test {
         File f = new File(root + "by/it/group773602/glazko/lesson03/encodeHuffman.txt");
         B_Huffman instance = new B_Huffman();
         String result = instance.decode(f);
-        boolean ok=result.equals("abacabad");
+        boolean ok = result.equals("abacabad");
         assertTrue("B failed", ok);
     }
+
     @Test
     public void C() throws Exception {
         String root = System.getProperty("user.dir") + "/src/";
         InputStream stream = new FileInputStream(root + "by/it/group773602/glazko/lesson03/heapData.txt");
         C_HeapMax instance = new C_HeapMax();
-        Long res=instance.findMaxValue(stream);
-        boolean ok=(res==500);
+        Long res = instance.findMaxValue(stream);
+        boolean ok = (res == 500);
         assertTrue("C failed", ok);
     }
-
 }

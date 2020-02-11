@@ -44,22 +44,53 @@ public class C_HeapMax {
         private List<Long> heap = new ArrayList<>();
 
         int siftDown(int i) { //просеивание вверх
-
+            boolean stop = false;
+            while (i * 2 + 1 < heap.size() && !stop) {
+                int left = i * 2 + 1;
+                int right = i * 2 + 2;
+                int j = left;
+                if (right < heap.size() && heap.get(right) < heap.get(left)) {
+                    j = right;
+                }
+                if (heap.get(i) <= heap.get(j)) {
+                    stop = true;
+                }
+                if (!stop) {
+                    swap(i, j);
+                    i = j;
+                }
+            }
             return i;
         }
 
         int siftUp(int i) { //просеивание вниз
-
+            while (heap.get(i) < heap.get((i - 1) / 2)) {
+                swap(i, (i - 1) / 2);
+                i = (i - 1) / 2;
+            }
             return i;
         }
 
         void insert(Long value) { //вставка
+            heap.add(value);
+            siftUp(heap.size() - 1);
         }
 
         Long extractMax() { //извлечение и удаление максимума
-            Long result = null;
-
+            Long result = heap.get(0);
+            for (int i = 1; i < heap.size(); i++) {
+                Long current = heap.get(i);
+                if (result < current) result = current;
+            }
+            heap.remove(result);
+            siftDown(0);
             return result;
+        }
+
+        private void swap(int first, int second) {
+            long tmp = heap.get(first);
+            heap.set(first, heap.get(second));
+            heap.set(second, tmp);
         }
         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! КОНЕЦ ЗАДАЧИ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
     }
