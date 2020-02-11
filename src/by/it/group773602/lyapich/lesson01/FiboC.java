@@ -23,15 +23,15 @@ public class FiboC {
     }
 
     long fasterC(long n, int m) {
-        ArrayList<Long>  listModPisano = getSequencePeriod(m);
-        int period = listModPisano.size() - 2;
-        int result = (int)(n % period);
+        var listModPisano = getSequencePeriod(m);
+        var period = listModPisano.size() - 2;
+        var result = (int)(n % period);
 
         return listModPisano.get(result);
     }
 
     private static ArrayList<Long> getSequencePeriod(long m){
-        ArrayList<Long> listModPisano = new ArrayList<Long>();
+        var listModPisano = new ArrayList<Long>();
         listModPisano.add((long)0);
         listModPisano.add((long)1);
 

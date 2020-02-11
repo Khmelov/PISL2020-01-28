@@ -1,7 +1,6 @@
 package by.it.a_khmelev.lesson02;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 /*
 даны события events
@@ -20,7 +19,7 @@ public class A_VideoRegistrator {
         System.out.println(starts);                            //покажем моменты старта
     }
     //модификаторы доступа опущены для возможности тестирования
-    public List<Double> calcStartTimes(double[] events, double workDuration){
+    List<Double> calcStartTimes(double[] events, double workDuration){
         //events - события которые нужно зарегистрировать
         //timeWorkDuration время работы видеокамеры после старта
         List<Double> result;
