@@ -54,7 +54,7 @@ public class C_HeapMax {
                 minChild = right < heap.size() &&
                         heap.get(right) < heap.get(left) ? right : left;
 
-                if (heap.get(i) <= heap.get(minChild)) break;
+                if (heap.get(i) >= heap.get(minChild)) break;
                 else {
                     swap(i, minChild);
                     i = minChild;
@@ -64,7 +64,7 @@ public class C_HeapMax {
         }
 
         int siftUp(int i) { //просеивание вниз
-            while (heap.get(i) < heap.get((i - 1) / 2)) {
+            while (heap.get(i) > heap.get((i - 1) / 2)) {
                 swap(i, (i - 1) / 2);
                 i = (i - 1) / 2;
             }
@@ -77,20 +77,9 @@ public class C_HeapMax {
         }
 
         Long extractMax() { //извлечение и удаление максимума
-            int left, right, parent;
-            parent = 0;
-
-            while (parent * 2 + 1 < heap.size()) {
-                left = parent * 2 + 1;
-                right = parent * 2 + 2;
-                parent = right < heap.size() &&
-                        heap.get(right) > heap.get(left) ? right : left;
-            }
-
-            var result = heap.get(parent);
+            var result = heap.get(0);
             heap.remove(result);
             siftDown(0);
-
             return result;
         }
 
@@ -136,7 +125,7 @@ public class C_HeapMax {
 
     public static void main(String[] args) throws FileNotFoundException {
         String root = System.getProperty("user.dir") + "/src/";
-        InputStream stream = new FileInputStream(root + "by/it/a_khmelev/lesson03/heapData.txt");
+        InputStream stream = new FileInputStream(root + "by/it/group773602/lyapich/lesson03/heapData.txt");
         C_HeapMax instance = new C_HeapMax();
         System.out.println("MAX="+instance.findMaxValue(stream));
     }

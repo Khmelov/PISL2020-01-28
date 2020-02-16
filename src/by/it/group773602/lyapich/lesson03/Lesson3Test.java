@@ -41,10 +41,10 @@ public class Lesson3Test {
     @Test
     public void C() throws Exception {
         String root = System.getProperty("user.dir") + "/src/";
-        InputStream stream = new FileInputStream(root + "by/it/a_khmelev/lesson03/heapData.txt");
+        InputStream stream = new FileInputStream(root + "by/it/group773602/lyapich/lesson03/heapData.txt");
         C_HeapMax instance = new C_HeapMax();
         Long res=instance.findMaxValue(stream);
-        boolean ok=(res==500);
+        boolean ok=(res==50340);
         assertTrue("C failed", ok);
     }
 
