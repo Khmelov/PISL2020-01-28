@@ -48,6 +48,6 @@ public class A_VideoRegistrator {
                 timeWork += workDuration;
             }
         }
-        return result; //вернем итог
+        return result;  //вернем итог
     }
 }
