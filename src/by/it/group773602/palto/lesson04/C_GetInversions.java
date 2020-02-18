@@ -3,6 +3,7 @@ package by.it.group773602.palto.lesson04;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /*
@@ -50,15 +51,43 @@ public class C_GetInversions {
         //!!!!!!!!!!!!!!!!!!!!!!!!     тут ваше решение   !!!!!!!!!!!!!!!!!!!!!!!!
 
 
-
-
-
-
-
+        result = inversCount(a);
 
 
         //!!!!!!!!!!!!!!!!!!!!!!!!!     КОНЕЦ ЗАДАЧИ     !!!!!!!!!!!!!!!!!!!!!!!!!
         return result;
+    }
+
+    int inversCount(int[] a){
+        if (a.length < 2)
+            return 0;
+
+        int middle = (a.length + 1) / 2;
+        int left[] = Arrays.copyOfRange(a, 0, middle);
+        int right[] = Arrays.copyOfRange(a, middle, a.length);
+
+        return inversCount(left) + inversCount(right) + merge(a, left, right);
+    }
+
+    int merge(int[] arr, int[] left, int[] right) {
+        int i = 0, j = 0, count = 0;
+        while (i < left.length || j < right.length) {
+            if (i == left.length) {
+                arr[i+j] = right[j];
+                j++;
+            } else if (j == right.length) {
+                arr[i+j] = left[i];
+                i++;
+            } else if (left[i] <= right[j]) {
+                arr[i+j] = left[i];
+                i++;
+            } else {
+                arr[i+j] = right[j];
+                count += left.length-i;
+                j++;
+            }
+        }
+        return count;
     }
 
 
