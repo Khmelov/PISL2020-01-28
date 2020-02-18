@@ -146,13 +146,11 @@ public class A_Huffman {
         }
         priorityQueue.peek().fillCodes("");
 
-
         // Кодируем строку
         StringBuilder sb = new StringBuilder();
         for (int i =0; i<s.length(); i++){
             sb.append(codes.get(s.charAt(i)));
         }
-
         return sb.toString();
         //01001100100111
         //01001100100111

@@ -22,6 +22,7 @@ Sample Output:
 public class B_MergeSort {
 
     int[] merge(int[] ar_1, int[] ar_2){
+
         int max = ar_1.length + ar_2.length;
         int[] result = new int[max];
         int m = 0, n = 0;

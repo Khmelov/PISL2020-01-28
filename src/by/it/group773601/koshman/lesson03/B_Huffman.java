@@ -54,7 +54,6 @@ public class B_Huffman {
         String code = null;
 
         while (scanner.hasNextLine()) {
-
             String str = scanner.nextLine();
             if (!str.contains(":")) {
 

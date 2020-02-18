@@ -55,6 +55,7 @@ public class C_GetInversions {
     }
 
     int invarCount(int[] a){
+
         if (a.length < 2)
             return 0;
 
