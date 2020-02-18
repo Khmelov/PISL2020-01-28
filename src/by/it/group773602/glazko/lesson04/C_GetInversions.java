@@ -3,6 +3,7 @@ package by.it.group773602.glazko.lesson04;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /*
@@ -46,21 +47,47 @@ public class C_GetInversions {
         for (int i = 0; i < n; i++) {
             a[i] = scanner.nextInt();
         }
-        int result = 0;
         //!!!!!!!!!!!!!!!!!!!!!!!!     тут ваше решение   !!!!!!!!!!!!!!!!!!!!!!!!
-
-
-
-
-
-
-
-
-
+        int result = countInversions(a);
         //!!!!!!!!!!!!!!!!!!!!!!!!!     КОНЕЦ ЗАДАЧИ     !!!!!!!!!!!!!!!!!!!!!!!!!
         return result;
     }
 
+    private int countInversions(int[] arr) {
+        int size = arr.length;
+        if (size < 2) {
+            return 0;
+        }
+        int m = (size + 1) / 2;
+        int[] left = Arrays.copyOfRange(arr, 0, m);
+        int[] right = Arrays.copyOfRange(arr, m, size);
+        return countInversions(left) + countInversions(right) + merge(arr, left, right);
+    }
+
+    private int merge(int[] arr, int[] left, int[] right) {
+        int i = 0;
+        int j = 0;
+        int count = 0;
+        int leftSize = left.length;
+        int rightSize = right.length;
+        while (i < leftSize || j < rightSize) {
+            if (i == leftSize) {
+                arr[i + j] = right[j];
+                j++;
+            } else if (j == rightSize) {
+                arr[i + j] = left[i];
+                i++;
+            } else if (left[i] <= right[j]) {
+                arr[i + j] = left[i];
+                i++;
+            } else {
+                arr[i + j] = right[j];
+                count += leftSize - i;
+                j++;
+            }
+        }
+        return count;
+    }
 
     public static void main(String[] args) throws FileNotFoundException {
         String root = System.getProperty("user.dir") + "/src/";

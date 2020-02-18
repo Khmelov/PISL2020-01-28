@@ -29,13 +29,13 @@ public class B_MergeSort {
             if (m >= ar_1.length & n < ar_2.length){
                 result[i] = ar_2[n];
                 n++;
-            }else if(n >= ar_2.length & m < ar_1.length){
+            } else if (n >= ar_2.length & m < ar_1.length){
                 result[i] = ar_1[m];
                 m++;
-            }else if (ar_1[m] <= ar_2[n] & m < ar_1.length){
+            } else if (ar_1[m] <= ar_2[n] & m < ar_1.length){
                 result[i] = ar_1[m];
                 m++;
-            }else {
+            } else {
                 result[i] = ar_2[n];
                 n++;
             }
@@ -48,7 +48,7 @@ public class B_MergeSort {
         int index = (int)(l + r) / 2;
         if (l < r){
            return merge(mergeSort(arr, l, index), mergeSort(arr, index + 1, r));
-        }else {
+        } else {
             result[0] = arr[l];
             return result;
         }
@@ -68,18 +68,13 @@ public class B_MergeSort {
             System.out.println(a[i]);
 
         }
-
         // тут ваше решение (реализуйте сортировку слиянием)
         // https://ru.wikipedia.org/wiki/Сортировка_слиянием
-
         a = mergeSort(a, 0, a.length - 1);
-
-
-
-
         //!!!!!!!!!!!!!!!!!!!!!!!!!     КОНЕЦ ЗАДАЧИ     !!!!!!!!!!!!!!!!!!!!!!!!!
         return a;
     }
+
     public static void main(String[] args) throws FileNotFoundException {
         String root = System.getProperty("user.dir") + "/src/";
         InputStream stream = new FileInputStream(root + "by/it/group773602/glazko/lesson04/dataB.txt");
@@ -91,6 +86,4 @@ public class B_MergeSort {
             System.out.print(index+" ");
         }
     }
-
-
 }
