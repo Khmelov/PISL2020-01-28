@@ -2,6 +2,8 @@ package by.it.group773602.palto.lesson03;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 // Lesson 3. B_Huffman.
@@ -50,8 +52,23 @@ public class B_Huffman {
         Integer length = scanner.nextInt();
         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! НАЧАЛО ЗАДАЧИ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
         //тут запишите ваше решение
-
-
+        scanner.nextLine();
+        Map<Character, String> symbolsToCode = new HashMap<>();
+        for (int i=0; i<count; i++){
+            String line = scanner.nextLine();
+            symbolsToCode.put(line.substring(0, 1).charAt(0), line.substring(3));
+        }
+        String message = scanner.nextLine();
+        while (message.length() != 0){
+            for(Map.Entry<Character, String> entry : symbolsToCode.entrySet()){
+                String entryValue = entry.getValue();
+                if (message.startsWith(entryValue)){
+                    message = message.substring(entryValue.length());
+                    result.append(entry.getKey());
+                    break;
+                }
+            }
+        }
 
 
         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! КОНЕЦ ЗАДАЧИ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
