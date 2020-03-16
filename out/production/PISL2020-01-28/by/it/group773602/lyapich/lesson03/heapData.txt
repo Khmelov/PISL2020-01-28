@@ -1,0 +1,15 @@
+14
+Insert 200
+Insert 10
+ExtractMax
+Insert 5
+Insert 500
+Insert 50340
+Insert 434
+Insert 534
+Insert 2341
+Insert 4564
+Insert 33
+Insert 1231
+Insert 34
+ExtractMax
