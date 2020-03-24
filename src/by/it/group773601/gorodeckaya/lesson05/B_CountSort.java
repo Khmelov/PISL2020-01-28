@@ -45,6 +45,7 @@ public class B_CountSort {
         int min = points[0];
         int max = points[0];
 
+        //находим min и max значения
         for(int i =1; i < points.length; i++){
             if (min > points[i]){
                 min = points[i];
@@ -54,12 +55,15 @@ public class B_CountSort {
             }
         }
 
+        //считаем количество включений чисел между min и max
         int[] counts = new int[max - min + 1];
         for(int i =0; i < points.length; i++){
             counts[points[i] - min]++;
         }
 
-        for(int i =0, ind = 0; i < counts.length; i++){
+        //сортируем
+        int ind=0;
+        for(int i =0; i < counts.length; i++){
             for(int j = 0; j < counts[i]; j++){
                 points[ind++] = i + min;
             }

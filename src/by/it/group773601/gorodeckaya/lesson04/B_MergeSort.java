@@ -21,22 +21,22 @@ Sample Output:
 */
 public class B_MergeSort {
 
-    int[] merge(int[] ar_1, int[] ar_2){
-        int max = ar_1.length + ar_2.length;
+    int[] merge(int[] ar1, int[] ar2){
+        int max = ar1.length + ar2.length;
         int[] result = new int[max];
         int m = 0, n = 0;
         for (int i = 0; i < max; i++){
-            if (m >= ar_1.length & n < ar_2.length){
-                result[i] = ar_2[n];
+            if (m >= ar1.length && n < ar2.length){
+                result[i] = ar2[n];
                 n++;
-            }else if(n >= ar_2.length & m < ar_1.length){
-                result[i] = ar_1[m];
+            }else if(n >= ar2.length && m < ar1.length){
+                result[i] = ar1[m];
                 m++;
-            }else if (ar_1[m] <= ar_2[n] & m < ar_1.length){
-                result[i] = ar_1[m];
+            }else if (ar1[m] <= ar2[n] && m < ar1.length){
+                result[i] = ar1[m];
                 m++;
             }else {
-                result[i] = ar_2[n];
+                result[i] = ar2[n];
                 n++;
             }
         }

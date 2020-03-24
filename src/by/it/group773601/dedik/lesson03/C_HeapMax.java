@@ -77,50 +77,51 @@ public class C_HeapMax {
         private List<Long> heap = new ArrayList<>();
 
         int siftDown(int i) { //просеивание вверх
-            int curr = 0;
-            int leftChild = 2 * curr + 1;
-            while (leftChild < heap.size()) {
-                int max = leftChild;
-                int rightChild = leftChild + 1;
-                if (rightChild < heap.size()) {
-                    if (heap.get(rightChild).compareTo(heap.get(1)) > 0) {
-                        ++max;
-                    }
+            int left, right;
+            int j;
+            while ((2 * i + 2) < heap.size()) {
+                left = 2 * i + 1;
+                right = 2 * i + 2;
+                j = left;
+                if (heap.get(right) < heap.get(left)) {
+                    j = right;
                 }
-                if (heap.get(curr).compareTo(heap.get(max)) < 0) {
-                    Long tmp = heap.get(curr);
-                    heap.set(curr, heap.get(max));
-                    heap.set(max, tmp);
-                    curr = max;
-                    leftChild = 2 * curr + 1;
-                } else break;
+                if (heap.get(i) <= heap.get(j)) {
+                    break;
+                }
+                Long temp = heap.get(i);
+                heap.set(i, heap.get(j));
+                heap.set(j, temp);
             }
             return i;
         }
 
         int siftUp(int i) { //просеивание вниз
-            i = heap.size() - 1;
-            while (i > 0) {
-                int curr = (i - 1) / 2;
-                Long Item = heap.get(i);
-                Long Parent = heap.get(curr);
-                if (Item.compareTo(Parent) > 0) {
-                    heap.set(i, Parent);
-                    heap.set(curr, Item);
-                    i = curr;
-                } else break;
+            while (heap.get(i) < heap.get((i - 1) / 2)) {
+                Long temp = heap.get(i);
+                heap.set(i, heap.get((i - 1) / 2));
+                heap.set((i - 1) / 2, temp);
+                i = (i - 1) / 2;
             }
             return i;
         }
 
         void insert(Long value) { //вставка
             heap.add(value);
-            siftUp(1);
+            siftUp(heap.size() - 1);
         }
 
         Long extractMax() { //извлечение и удаление максимума
-            Long result = heap.remove(0);
-
+            Long result = 0L;
+            int index = 0;
+            for (int i = 0; i < heap.size(); i++) {
+                if (heap.get(i) > result) {
+                    result = heap.get(i);
+                    index = i;
+                }
+            }
+            heap.remove(index);
+            siftDown(0);
             return result;
         }
         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! КОНЕЦ ЗАДАЧИ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1

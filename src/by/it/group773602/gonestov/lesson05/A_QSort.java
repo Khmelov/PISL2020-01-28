@@ -1,4 +1,4 @@
-package it.group773602.gonestov.lesson05;
+package by.it.group773602.gonestov.lesson05;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

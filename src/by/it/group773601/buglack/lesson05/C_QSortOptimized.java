@@ -60,13 +60,13 @@ public class C_QSortOptimized {
         int l = left, r = right, lm = midInd, rm = midInd;
         while (true) {
             while (l < lm && mas[l].compareTo(mid) <= 0) {
-                if (mas[l].compareTo(mid) == 0) {
+                if (mas[l].compareTo(mid) != 0) {
                     lm--;
                     swap(mas, l, lm);
                 } else l++;
             }
             while (r > rm && mas[r].compareTo(mid) >= 0) {
-                if (mas[r].compareTo(mid) == 0) {
+                if (mas[r].compareTo(mid) != 0) {
                     rm++;
                     swap(mas, r, rm);
                 } else r--;

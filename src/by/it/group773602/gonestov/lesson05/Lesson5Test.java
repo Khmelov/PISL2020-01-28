@@ -1,10 +1,11 @@
-package it.group773602.gonestov.lesson05;
+package by.it.group773602.gonestov.lesson05;
 
 import org.junit.Test;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Arrays;
+
 
 import static org.junit.Assert.assertTrue;
 
