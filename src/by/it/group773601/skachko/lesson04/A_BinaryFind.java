@@ -39,8 +39,8 @@ public class A_BinaryFind {
             a[i-1] = scanner.nextInt();
         }
 
-        //размер массива индексов
-        int k = scanner.nextInt();
+
+        int k = scanner.nextInt();  //размер массива индексов
         int[] result=new int[k];
         for (int i = 0; i < k; i++) {
             int value = scanner.nextInt();
@@ -48,17 +48,17 @@ public class A_BinaryFind {
             int end = a.length - 1;
             int start = 0;
 
-            while (start <= end) {
-                int middle = (start + end) / 2;
+            while (start <= end) { //пока отрезок не "схлопнулся"
+                int middle = (start + end) / 2; //находим индекс середины отрезка
 
-                if (value == a[middle]) {
+                if (value == a[middle]) { //если искомый элемент = среднему, то мы его нашли. Останавливаем поиск
                     searchIndex = middle + 1;
                     break;
                 }
-                else if (value < a[middle]) {
+                else if (value < a[middle]) { //если искомый элемент < среднего, то отюрасываем всю правую часть от середины и повторяем
                     end = middle - 1;
                 }
-                else {
+                else { //если искомый элемент > среднего, то отюрасываем всю левую часть от середины и повторяем
                     start = middle + 1;
                 }
             }
@@ -77,7 +77,7 @@ public class A_BinaryFind {
         //long startTime = System.currentTimeMillis();
         int[] result=instance.findIndex(stream);
         //long finishTime = System.currentTimeMillis();
-        for (int index:result){
+        for (int index : result){
             System.out.print(index+" ");
         }
     }

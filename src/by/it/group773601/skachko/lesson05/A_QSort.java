@@ -83,19 +83,20 @@ public class A_QSort {
             points[i]=scanner.nextInt();
         }
 
-        quickSort(segments, 0, segments.length - 1);
-        for (int i = 0; i < points.length; i++) {
+        quickSort(segments, 0, segments.length - 1); // сортировка отрезков
+
+        for (int i = 0; i < points.length; i++) { //для каждой точки
             int count = 0;
-            for (Segment segment : segments) {
-                if (points[i] <= segment.stop && points[i] >= segment.start) {
-                    count++;
+            for (Segment segment : segments) { //перебор отрезков
+                if (points[i] <= segment.stop && points[i] >= segment.start) { //если точка попала на отрезок или его границу
+                    count++; //то считаем
                 }
-                if (points[i] < segment.start) {
+                if (points[i] < segment.start) { //если точка оказалась раньше начала отрезка, то останавливаем перебор отрезков
                     break;
                 }
 
             }
-            result[i] = count;
+            result[i] = count; //количество отрезков, куда попала точка
         }
 
 
@@ -104,27 +105,24 @@ public class A_QSort {
         return result;
     }
     public void quickSort(Segment arr[], int begin, int end) {
-        if (begin < end) {
-            int partitionIndex = partition(arr, begin, end);
+        if (begin < end) { // пока есть что сортировать
+            int partitionIndex = partition(arr, begin, end); //ищем индекс для деления
 
-            quickSort(arr, begin, partitionIndex - 1);
-            quickSort(arr, partitionIndex + 1, end);
+            quickSort(arr, begin, partitionIndex - 1); //вызывает рекурсивно сортировку левой части массива
+            quickSort(arr, partitionIndex + 1, end); //и правой
         }
     }
 
-    private int partition(Segment arr[], int begin, int end) {
-        Segment pivot = arr[end];
-        //int i = (begin - 1);
-        int i = (begin - 1);
-        //int i = (begin - 1);
+    private int partition(Segment[] arr, int begin, int end) {
+        Segment pivot = arr[end]; //берём последний элемент орезка как опорный элемент
+        int i = (begin - 1); //индекс
 
-        for (int j = begin; j < end; j++) {
-            if (arr[j].compareTo(pivot) <= 0) {
-                i++;
+        for (int j = begin; j < end; j++) { //проходим по всему отрезку
+            if (arr[j].compareTo(pivot) <= 0) { //все элементы больше опорного элемента двигаем правее опорного элемента
+                i++;                            //а те, что меньше - левее
                 Segment swapTemp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = swapTemp;
-                //i++;
             }
         }
 
@@ -132,13 +130,13 @@ public class A_QSort {
         arr[i + 1] = arr[end];
         arr[end] = swapTemp;
 
-        return i + 1;
+        return i + 1; //возвращаем индекс опорного элемента
     }
 
 
     public static void main(String[] args) throws FileNotFoundException {
         String root = System.getProperty("user.dir") + "/src/";
-        InputStream stream = new FileInputStream(root + "by/it/group773601/koshman/lesson05/dataA.txt");
+        InputStream stream = new FileInputStream(root + "by/it/a_khmelev/lesson05/dataA.txt");
         A_QSort instance = new A_QSort();
         int[] result=instance.getAccessory(stream);
         for (int index:result){

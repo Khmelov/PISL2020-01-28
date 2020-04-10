@@ -82,7 +82,6 @@ public class A_QSort {
              quicksort(a,l,j);
         if (j>r)
              quicksort(a,j, r);
-        return;
     }
 
     int[] getAccessory(InputStream stream) throws FileNotFoundException {
