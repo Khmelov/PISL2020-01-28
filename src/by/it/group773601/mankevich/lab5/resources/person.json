@@ -1,0 +1,12 @@
+{"persons":
+[{"login":1,
+  "lastName":"Манкевич",
+  "firstName":"Данила",
+  "thirdName":"Андреевич",
+  "passport":{"series":"MP","number":"3221488","idNumber":"13131322222222"},
+  "birthDate":1555491182694,
+  "address":{"actualCity":"MINSK","actualAddress":"ул. Матусевича 70","releaseCity":"MINSK","releaseAddress":"ул. Матусевича 70"},
+  "nation":"BELARUS",
+  "reservist": true
+}]
+}
