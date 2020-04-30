@@ -17,7 +17,7 @@ import java.util.Scanner;
 для которого A[j]=bi, или -1, если такого j нет.
 
         Sample Input:
-        5 1 5 8 12 13
+        5 1 5 8 12    13
         5 8 1 23 1 11
 
         Sample Output:
@@ -52,10 +52,10 @@ public class A_BinaryFind {
         position = (first + last)/2;
         while ((array[position]!=value) && first<=last){
             if(array[position] > value){
-                last = position-1;
+                last = position-1;//лево
             }
             else{
-                first = position + 1;
+                first = position + 1;//право
             }
             position = (first + last)/2;
         }

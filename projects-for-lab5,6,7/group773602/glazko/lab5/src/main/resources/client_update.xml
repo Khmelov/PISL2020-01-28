@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<clients>
+    <client>
+        <lastName>Петров</lastName>
+        <firstName>Петр</firstName>
+        <patronymicName>Петрович</patronymicName>
+        <birthDate>1996-11-04</birthDate>
+        <passportSeries>MP</passportSeries>
+        <passportNumber>5102412</passportNumber>
+        <passportPersonalNumber>5041196A014PB5</passportPersonalNumber>
+        <city>
+            <cityCode>BQT</cityCode>
+            <cityName>Брест</cityName>
+        </city>
+        <residenceAddress>ул. Коласа, 47-98</residenceAddress>
+        <mobilePhone>+375447205878</mobilePhone>
+        <email>petrov@mail.ru</email>
+        <employed>false</employed>
+        <workPosition/>
+        <registrationAddress>ул. Купалы, 24</registrationAddress>
+        <country>
+            <countryCode>BY</countryCode>
+            <countryName>Беларусь</countryName>
+        </country>
+    </client>
+</clients>

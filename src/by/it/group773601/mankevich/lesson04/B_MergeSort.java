@@ -16,33 +16,17 @@ import java.util.Scanner;
 
 Sample Input:
 5
-2 3 9 2 9
+2 3   9 2    9
+
+2 3 2 9 9
+
+
+
 Sample Output:
 2 2 3 9 9
 */
 public class B_MergeSort {
 
-//    int[] merge(int[] ar_1, int[] ar_2){
-//        int max = ar_1.length + ar_2.length;
-//        int[] result = new int[max];
-//        int m = 0, n = 0;
-//        for (int i = 0; i < max; i++){
-//            if (m >= ar_1.length & n < ar_2.length){
-//                result[i] = ar_2[n];
-//                n++;
-//            }else if(n >= ar_2.length & m < ar_1.length){
-//                result[i] = ar_1[m];
-//                m++;
-//            }else if (ar_1[m] <= ar_2[n] & m < ar_1.length){
-//                result[i] = ar_1[m];
-//                m++;
-//            }else {
-//                result[i] = ar_2[n];
-//                n++;
-//            }
-//        }
-//        return result;
-//    }
 
     private int[] mergeSort(int[] buffer1, int[] buffer2, int startIndex, int lastIndex) {
         if(startIndex>=lastIndex - 1){
@@ -53,7 +37,7 @@ public class B_MergeSort {
         int[] secondArray = mergeSort(buffer1, buffer2, middleIndex, lastIndex);
 
         int index1 = startIndex, index2 = middleIndex, destIndex = startIndex;
-        int[] result = (firstArray == buffer1) ? buffer2 : buffer1;
+        int[] result = (firstArray == buffer1) ? buffer2 : buffer1;//условие ветвления
         while (index1 < middleIndex && index2 < lastIndex){
             result[destIndex++] = (firstArray[index1] < secondArray[index2])
                     ? firstArray[index1++] : secondArray[index2++];
