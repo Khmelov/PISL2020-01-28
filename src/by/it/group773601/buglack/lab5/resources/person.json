@@ -1,0 +1,12 @@
+{"persons":
+[{"login":1,
+  "lastName":"Буглак",
+  "firstName":"Елена",
+  "thirdName":"Геннадьевна",
+  "passport":{"series":"MC","number":"3181855","idNumber":"13131313131313"},
+  "birthDate":1555491182694,
+  "address":{"actualCity":"MINSK","actualAddress":"ул. Калиновского 27","releaseCity":"MINSK","releaseAddress":"ул. Калиновского 27"},
+  "nation":"BELARUS",
+  "reservist": true
+}]
+}

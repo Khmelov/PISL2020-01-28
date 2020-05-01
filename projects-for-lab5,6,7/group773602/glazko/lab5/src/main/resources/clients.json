@@ -1,0 +1,50 @@
+{
+   "clients":[
+      {
+         "lastName":"Васильев",
+         "firstName":"Сергей",
+         "patronymicName":"Михайлович",
+         "birthDate":480546000000,
+         "passportSeries":"MP",
+         "passportNumber":"2455786",
+         "passportPersonalNumber":"5250385A041PB5",
+         "residenceCity":{
+            "cityCode":"GNA",
+            "cityName":"Гродно"
+         },
+         "residenceAddress":"ул. Скорины, 120-69",
+         "mobilePhone":"+375259094752",
+         "email":"serjvasilyev@yandex.by",
+         "employed":true,
+         "workPosition":"Столяр",
+         "registrationAddress":"ул. Скорины, 120-69",
+         "citizenship":{
+            "countryCode":"BY",
+            "countryName":"Беларусь"
+         }
+      },
+      {
+         "lastName":"Максимов",
+         "firstName":"Антон",
+         "patronymicName":"Иванович",
+         "birthDate":560811600000,
+         "passportSeries":"MP",
+         "passportNumber":"3205478",
+         "passportPersonalNumber":"5101087A025PB5",
+         "residenceCity":{
+            "cityCode":"MSQ",
+            "cityName":"Минск"
+         },
+         "residenceAddress":"ул. Кирова, 40-45",
+         "mobilePhone":"+375293195062",
+         "email":"maksimovv@gmail.com",
+         "employed":true,
+         "workPosition":"Системный администратор",
+         "registrationAddress":"ул. Платонова, 41-98",
+         "citizenship":{
+            "countryCode":"BY",
+            "countryName":"Беларусь"
+         }
+      }
+   ]
+}

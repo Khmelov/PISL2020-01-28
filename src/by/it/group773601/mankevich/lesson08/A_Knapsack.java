@@ -1,4 +1,4 @@
-package by.it.group773601.buglack.lesson08;
+package lesson08;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -52,11 +52,9 @@ public class A_Knapsack {
         int[] array = new int[W];
         for(int i = 0; i < W; i++){
             for(int j = 0; j < gold.length; j++) {
-                if (gold[j] <= i) {// пока размер слитка меньше вместимости рюкзака
+                if (gold[j] <= i) {
                     while (array[i] < i) {
-                        array[i] = Math.max(array[i], array[i] + gold[j]);// если до этого в array[i] был меньший элемент,
-                        // то  к нему прибавляется размерность слитка и записывается в результат, и это будет продолжаться
-                        // пока не превзойдет i( размер рюкзака)
+                        array[i] = Math.max(array[i], array[i] + gold[j]);
                     }
                 }
             }

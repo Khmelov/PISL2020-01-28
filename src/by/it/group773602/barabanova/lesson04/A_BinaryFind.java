@@ -1,4 +1,4 @@
-package by.it.group773601.mankevich.lesson04;
+package by.it.group773602.barabanova.lesson04;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -17,7 +17,7 @@ import java.util.Scanner;
 для которого A[j]=bi, или -1, если такого j нет.
 
         Sample Input:
-        5 1 5 8 12    13
+        5 1 5 8 12 13
         5 8 1 23 1 11
 
         Sample Output:
@@ -27,49 +27,51 @@ import java.util.Scanner;
 */
 
 public class A_BinaryFind {
-    int[] findIndex(InputStream stream){
+    int[] findIndex(InputStream stream) throws FileNotFoundException {
+        //подготовка к чтению данных
         Scanner scanner = new Scanner(stream);
+        //!!!!!!!!!!!!!!!!!!!!!!!!!     НАЧАЛО ЗАДАЧИ     !!!!!!!!!!!!!!!!!!!!!!!!!
 
         //размер отсортированного массива
         int n = scanner.nextInt();
         //сам отсортированный массива
-        int[] a=new int[n];
+        int[] a = new int[n];
         for (int i = 1; i <= n; i++) {
-            a[i-1] = scanner.nextInt();
+            a[i - 1] = scanner.nextInt();
         }
 
+        //размер массива индексов
         int k = scanner.nextInt();
-        int[] result=new int[k];
+        int[] result = new int[k];
         for (int i = 0; i < k; i++) {
             int value = scanner.nextInt();
-            result[i] = binarySearch(a, 0, a.length-1, value);
+            //тут реализуйте бинарный поиск индекса
+            int left = 0;
+            int right = n - 1;
+            int index = -1;
+            while (left <= right && index == -1) {
+                int mid = (left + right) / 2;
+                if (value == a[mid]) {
+                    index = mid;
+                } else if (value < a[mid]) {
+                    right = mid - 1;
+                } else {
+                    left = mid + 1;
+                }
+            }
+            if (index != -1) {
+                index++;
+            }
+            result[i] = index;
         }
+        //!!!!!!!!!!!!!!!!!!!!!!!!!     КОНЕЦ ЗАДАЧИ     !!!!!!!!!!!!!!!!!!!!!!!!!
         return result;
     }
-
-    private int binarySearch(int[] array, int first, int last, int value) {
-        int position;
-        position = (first + last)/2;
-        while ((array[position]!=value) && first<=last){
-            if(array[position] > value){
-                last = position-1;//лево
-            }
-            else{
-                first = position + 1;//право
-            }
-            position = (first + last)/2;
-        }
-        if(first<=last){
-            return ++position;
-        }
-        return -1;
-    }
-
 
 
     public static void main(String[] args) throws FileNotFoundException {
         String root = System.getProperty("user.dir") + "/src/";
-        InputStream stream = new FileInputStream(root + "by/it/a_khmelev/lesson04/dataA.txt");
+        InputStream stream = new FileInputStream(root + "by/it/group773602/borshchevich/lesson04/dataA.txt");
         A_BinaryFind instance = new A_BinaryFind();
         //long startTime = System.currentTimeMillis();
         int[] result=instance.findIndex(stream);

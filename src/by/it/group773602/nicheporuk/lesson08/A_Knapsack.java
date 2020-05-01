@@ -1,8 +1,9 @@
-package by.it.group773601.buglack.lesson08;
+package by.it.group773602.nicheporuk.lesson08;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /*
@@ -37,34 +38,31 @@ Sample Output 2:
 public class A_Knapsack {
 
     int getMaxWeight(InputStream stream ) {
+        //!!!!!!!!!!!!!!!!!!!!!!!!!     НАЧАЛО ЗАДАЧИ     !!!!!!!!!!!!!!!!!!!!!!!!!
         Scanner scanner = new Scanner(stream);
         int w=scanner.nextInt();
         int n=scanner.nextInt();
-        int gold[]=new int[n];
+        int[] gold =new int[n];
         for (int i = 0; i < n; i++) {
             gold[i]=scanner.nextInt();
         }
 
-        return knapsackWithRepsBU(w,n,gold);
+        return packKnapsack(w, gold);
+
+        //!!!!!!!!!!!!!!!!!!!!!!!!!     КОНЕЦ ЗАДАЧИ     !!!!!!!!!!!!!!!!!!!!!!!!!
+
     }
 
-    private int knapsackWithRepsBU(int W, int n, int[] gold) {
-        int[] array = new int[W];
-        for(int i = 0; i < W; i++){
-            for(int j = 0; j < gold.length; j++) {
-                if (gold[j] <= i) {// пока размер слитка меньше вместимости рюкзака
-                    while (array[i] < i) {
-                        array[i] = Math.max(array[i], array[i] + gold[j]);// если до этого в array[i] был меньший элемент,
-                        // то  к нему прибавляется размерность слитка и записывается в результат, и это будет продолжаться
-                        // пока не превзойдет i( размер рюкзака)
-                    }
-                }
-            }
+    private int packKnapsack(int maxWeight, int[] gold) {
+        int weight = 0;
+        Arrays.sort(gold);
+        for (int index = gold.length - 1; index >= 0; index--) {
+            int goldPieceWeight = gold[index];
+            int count = (maxWeight - weight) / goldPieceWeight;
+            weight += count * goldPieceWeight;
         }
-        return array[W-1];
+        return weight;
     }
-
-
 
     public static void main(String[] args) throws FileNotFoundException {
         String root = System.getProperty("user.dir") + "/src/";
@@ -74,4 +72,3 @@ public class A_Knapsack {
         System.out.println(res);
     }
 }
-

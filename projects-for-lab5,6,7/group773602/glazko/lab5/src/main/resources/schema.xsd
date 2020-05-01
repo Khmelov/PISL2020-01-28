@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="https://www.example.com"
+        xmlns:ex="https://www.example.com">
+    <element name="clients">
+        <complexType>
+            <sequence>
+                <element name="client"
+                         type="ex:Client"
+                         minOccurs="2"
+                         maxOccurs="unbounded" />
+            </sequence>
+        </complexType>
+    </element>
+
+    <complexType name="Client">
+        <sequence>
+            <element name="lastName">
+                <simpleType>
+                    <restriction base="string">
+                        <pattern value="[А-Я][А-я\- ]{1,24}" />
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="firstName">
+                <simpleType>
+                    <restriction base="string">
+                        <pattern value="[А-Я][А-я\- ]{1,24}" />
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="patronymicName">
+                <simpleType>
+                    <restriction base="string">
+                        <pattern value="[А-Я][А-я\- ]{1,24}" />
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="birthDate" type="date" />
+            <element name="passportSeries" type="string" />
+            <element name="passportNumber" type="string" />
+            <element name="passportPersonalNumber" type="string" />
+            <element name="city" type="ex:City" />
+            <element name="residenceAddress" type="string" />
+            <element name="mobilePhone">
+                <simpleType>
+                    <restriction base="string">
+                        <pattern value="\+375((25)|(29)|(33)|(44))[0-9]{7}" />
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="email" type="string" />
+            <element name="employed" type="boolean" />
+            <element name="workPosition" type="string" />
+            <element name="registrationAddress" type="string" />
+            <element name="country" type="ex:Country" />
+        </sequence>
+    </complexType>
+
+    <complexType name="City">
+        <sequence>
+            <element name="cityCode">
+                <simpleType>
+                    <restriction base="string">
+                        <pattern value="[A-Z]{3}" />
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="cityName">
+                <simpleType>
+                    <restriction base="string">
+                        <pattern value="[А-Я][А-я\- ]{1,24}" />
+                    </restriction>
+                </simpleType>
+            </element>
+        </sequence>
+    </complexType>
+
+    <complexType name="Country">
+        <sequence>
+            <element name="countryCode">
+                <simpleType>
+                    <restriction base="string">
+                        <pattern value="[A-Z]{2}" />
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="countryName">
+                <simpleType>
+                    <restriction base="string">
+                        <pattern value="[А-Я][А-я\- ]{1,24}" />
+                    </restriction>
+                </simpleType>
+            </element>
+        </sequence>
+    </complexType>
+</schema>

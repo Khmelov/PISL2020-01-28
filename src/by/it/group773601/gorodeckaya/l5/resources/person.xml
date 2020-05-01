@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persons>
+    <person>
+        <lastName>Gorodeckaya</lastName>
+        <firstName>Ariana</firstName>
+        <patronymic>Mikhailovna</patronymic>
+        <birthDate>1999-12-29T03:00:00+03:00</birthDate>
+        <sex>female</sex>
+        <address>
+            <nowCity>Minsk</nowCity>
+            <nowAddress>st. Pobeda 33</nowAddress>
+            <phone>4-33-00</phone>
+            <mobphone>+375(33)654-95-97</mobphone>
+            <registrationCity>Minsk</registrationCity>
+        </address>
+        <passport>
+            <series>AB</series>
+            <number>2824485</number>
+            <idNumber>12345678901234</idNumber>
+        </passport>
+        <nation>belarus</nation>
+    </person>
+</persons>

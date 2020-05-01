@@ -1,4 +1,4 @@
-package by.it.group773601.buglack.lesson08;
+package by.it.group773601.koshman.lesson08;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -37,6 +37,7 @@ Sample Output 2:
 public class A_Knapsack {
 
     int getMaxWeight(InputStream stream ) {
+        //!!!!!!!!!!!!!!!!!!!!!!!!!     НАЧАЛО ЗАДАЧИ     !!!!!!!!!!!!!!!!!!!!!!!!!
         Scanner scanner = new Scanner(stream);
         int w=scanner.nextInt();
         int n=scanner.nextInt();
@@ -45,33 +46,34 @@ public class A_Knapsack {
             gold[i]=scanner.nextInt();
         }
 
-        return knapsackWithRepsBU(w,n,gold);
+        int result = repeatingBackpack(w,n,gold);
+        //!!!!!!!!!!!!!!!!!!!!!!!!!     КОНЕЦ ЗАДАЧИ     !!!!!!!!!!!!!!!!!!!!!!!!!
+        return result;
     }
-
-    private int knapsackWithRepsBU(int W, int n, int[] gold) {
-        int[] array = new int[W];
-        for(int i = 0; i < W; i++){
-            for(int j = 0; j < gold.length; j++) {
-                if (gold[j] <= i) {// пока размер слитка меньше вместимости рюкзака
-                    while (array[i] < i) {
-                        array[i] = Math.max(array[i], array[i] + gold[j]);// если до этого в array[i] был меньший элемент,
-                        // то  к нему прибавляется размерность слитка и записывается в результат, и это будет продолжаться
-                        // пока не превзойдет i( размер рюкзака)
-                    }
-                }
-            }
-        }
-        return array[W-1];
-    }
-
 
 
     public static void main(String[] args) throws FileNotFoundException {
         String root = System.getProperty("user.dir") + "/src/";
-        InputStream stream = new FileInputStream(root + "by/it/a_khmelev/lesson08/dataA.txt");
+        InputStream stream = new FileInputStream(root + "by/it/group773601/koshman/lesson08/dataA.txt");
         A_Knapsack instance = new A_Knapsack();
         int res=instance.getMaxWeight(stream);
         System.out.println(res);
     }
+
+    private int  repeatingBackpack(int w, int n, int[] gold) {
+        int[] resultArray = new int[w];
+        for(int i = 0; i < w; i++){
+            for(int j = 0; j < gold.length; j++) {
+                if (gold[j] <= i) {
+                    while (resultArray[i] < i) {
+                        resultArray[i] = Math.max(resultArray[i], resultArray[i] + gold[j]);
+                    }
+                }
+            }
+        }
+        return resultArray[w-1];
+    }
+
 }
+
 

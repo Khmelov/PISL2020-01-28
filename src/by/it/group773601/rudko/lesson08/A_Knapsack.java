@@ -1,4 +1,4 @@
-package by.it.group773601.buglack.lesson08;
+package by.it.group773601.rudko.lesson08;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -37,31 +37,26 @@ Sample Output 2:
 public class A_Knapsack {
 
     int getMaxWeight(InputStream stream ) {
+        //!!!!!!!!!!!!!!!!!!!!!!!!!     НАЧАЛО ЗАДАЧИ     !!!!!!!!!!!!!!!!!!!!!!!!!
         Scanner scanner = new Scanner(stream);
-        int w=scanner.nextInt();
-        int n=scanner.nextInt();
-        int gold[]=new int[n];
-        for (int i = 0; i < n; i++) {
-            gold[i]=scanner.nextInt();
-        }
+        int w = scanner.nextInt();
+        int n = scanner.nextInt();
+        int gold[] = new int[n];
 
-        return knapsackWithRepsBU(w,n,gold);
-    }
+        for (int i = 0; i < n; i++) gold[i] = scanner.nextInt();
 
-    private int knapsackWithRepsBU(int W, int n, int[] gold) {
-        int[] array = new int[W];
-        for(int i = 0; i < W; i++){
-            for(int j = 0; j < gold.length; j++) {
-                if (gold[j] <= i) {// пока размер слитка меньше вместимости рюкзака
-                    while (array[i] < i) {
-                        array[i] = Math.max(array[i], array[i] + gold[j]);// если до этого в array[i] был меньший элемент,
-                        // то  к нему прибавляется размерность слитка и записывается в результат, и это будет продолжаться
-                        // пока не превзойдет i( размер рюкзака)
+        int[] steps = new int[w];
+
+        for (int o : steps) o = 0;
+
+        for (int i = 0; i < w; i++)
+            for (int j = 0; j < n; j++)
+                if (gold[j] <= w)
+                    if (i >= gold[j]) {
+                        steps[i] = Math.max(steps[i], steps[i - gold[j]] + gold[j]);
                     }
-                }
-            }
-        }
-        return array[W-1];
+        return steps[w-1];
+        //!!!!!!!!!!!!!!!!!!!!!!!!!     КОНЕЦ ЗАДАЧИ     !!!!!!!!!!!!!!!!!!!!!!!!!
     }
 
 
