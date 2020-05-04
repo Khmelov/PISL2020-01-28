@@ -1,4 +1,4 @@
-package by.it.group773601.gorodeckaya.l5.java.hibernate;
+package skachko.l5.java.hibernate;
 
 import classes.Person;
 import org.hibernate.Session;

@@ -1,10 +1,10 @@
-package by.it.group773601.gorodeckaya.l5.java;
+package by.it.group773601.skachko.l5.java;
 
-import classes.Person;
-import classes.Persons;
-import classes.PersonSet;
+import skachko.l5.java.classes.Person ;
+import skachko.l5.java.classes.Persons;
+import skachko.l5.java.classes.PersonSet;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import hibernate.ServiceDAO;
+import skachko.l5.java.hibernate.ServiceDAO;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;

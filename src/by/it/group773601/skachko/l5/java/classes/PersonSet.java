@@ -1,4 +1,4 @@
-package by.it.group773601.gorodeckaya.l5.java.classes;
+package skachko.l5.java.classes;
 
 import classes.*;
 
